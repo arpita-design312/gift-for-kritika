@@ -11,36 +11,51 @@
       background: #ffe6f0;
       font-family: Arial, sans-serif;
       text-align: center;
+      flex-direction: column;
     }
     h1 {
       color: #ff4081;
     }
+    a {
+      text-decoration: none;
+      color: #ff4081;
+      font-weight: bold;
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- Background Music -->
   <audio id="bgMusic" loop>
-  <source src="Golden-Hour-chosic.com_.mp3" type="audio/mpeg">
-</audio>
-<h1>
-  Yayyy! 💕✨<br>
-  This gift is made just for you 💝<br>
-  You're special 🌸
+    <source src="Golden-Hour-chosic.com_.mp3" type="audio/mpeg">
+  </audio>
+
+  <h1>
+    Yayyy! 💕✨<br>
+    This gift is made just for you 💝<br>
+    You're special 🌸
   </h1>
+
   <p style="margin-top:20px; font-size:18px;">
-<a href="memory.html">WAIT, THERE’S MORE</a>
-</p>
+    <a href="memory.html">WAIT, THERE’S MORE</a>
+  </p>
 
-<script>
-setTimeout(() => {
-  window.location.href = "memory.html";
-}, 3000);
   <script>
-  const music = document.getElementById("bgMusic");
+    const music = document.getElementById("bgMusic");
 
-  document.addEventListener("click", () => {
-    music.volume = 0.6;
-    music.play();
-  }, { once: true });
-                                        </script>
+    // Play music on first interaction
+    document.addEventListener("click", () => {
+      music.volume = 0.6;
+      music.play();
+    }, { once: true });
+
+    // Auto redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = "memory.html";
+    }, 3000);
+  </script>
+
 </body>
 </html>
+
