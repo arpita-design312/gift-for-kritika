@@ -1,24 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Memories 💕</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Kritika 💖</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background: #fff0f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      animation: fade 0.8s ease;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    img {
+      max-width: 85%;
+      max-height: 70vh;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .spotify {
+      margin-top: 20px;
+    }
+
+    .final-text {
+      font-size: 2rem;
+      color: #ff4d88;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
-<body class="memory-page">
 
-  <h2>For you, Kritika 💖</h2>
+<body>
 
-  <div class="gallery">
-    <img src="pic1.jpg">
-    <img src="pic2.jpg">
-    <img src="pic3.jpg">
-    <img src="pic4.jpg">
-    <div class="last-pic">
-      <img src="pic5.jpg">
-      <p>just kidding! 😉🤧</p>
-    </div>
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="Golden-Hour-chosic.com_.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Page 1 -->
+  <div class="page active">
+    <img src="pic1.jpg" />
+    <div class="spotify"><img src="spotify1.png" width="300"></div>
   </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <img src="pic2.jpg" />
+    <div class="spotify"><img src="spotify2.png" width="300"></div>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page">
+    <img src="pic3.jpg" />
+    <div class="spotify"><img src="spotify3.png" width="300"></div>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page">
+    <img src="pic4.jpg" />
+    <div class="spotify"><img src="spotify4.png" width="300"></div>
+  </div>
+
+  <!-- Page 5 (Final) -->
+  <div class="page">
+    <img src="pic5.jpg" />
+    <div class="final-text">just kidding! 😉🤧</div>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    let current = 0;
+    const music = document.getElementById('bgMusic');
+
+    document.body.addEventListener('click', () => {
+      if (music.paused) {
+        music.volume = 0.6;
+        music.play();
+      }
+
+      pages[current].classList.remove('active');
+      current = (current + 1) % pages.length;
+      pages[current].classList.add('active');
+    });
+  </script>
 
 </body>
 </html>
